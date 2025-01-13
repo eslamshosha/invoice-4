@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <title>store-invoice</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-ExtraLight.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-ExtraLight.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-ExtraLight.ttf") format("truetype");
+      font-weight: 200;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Light.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Light.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Light.ttf") format("truetype");
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Regular.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Regular.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-SemiBold.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-SemiBold.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-SemiBold.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Bold.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Bold.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Black.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Black.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Black.ttf") format("truetype");
+      font-weight: 900;
+      font-style: normal;
+    }
+    body {
+      font-family: "Cairo", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      font-weight: 400;
+    }
+    .table_group {
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid #eeeff1;
+      border-radius: 25px;
+      margin: 30px 60px;
+    }
+
+    .table_group .table-info {
+      width: 100%;
+      margin-bottom: 20px;
+      border-collapse: collapse;
+      border: none;
+      /* table-layout: fixed; */
+    }
+    .table-info tr {
+      width: 100%;
+      border-bottom: 1px solid #eeeff1;
+    }
+    .table-info th,
+    .table-info td {
+      height: 45px;
+      text-align: center;
+      /* border-bottom: 2px solid #eeeff1; */
+      border-collapse: collapse;
+      padding: 0 20px;
+    }
+    .table-info tbody tr {
+      position: relative;
+      border-bottom: 2px solid transparent;
+    }
+    .table-info tbody tr::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -3px;
+      height: 1px;
+      width: 94%;
+      border-bottom: 1px solid #eeeff1;
+    }
+    .table_group .table-info tbody tr:last-child {
+      border-bottom: 1px solid #eeeff1;
+    }
+    .table_group .table-info tbody tr:last-child::after {
+      display: none;
+    }
+    .table_group .table-info th {
+      font-weight: 700;
+      font-size: 18px;
+      color: #000;
+    }
+    .table-info td {
+      font-weight: 700;
+      font-size: 18px;
+      color: #5e6470;
+    }
+    .table_group .text-start {
+      text-align: start;
+      padding: 0 20px;
+      color: #000;
+    }
+    .table_group th.text-start {
+      padding: 0 40px;
+    }
+
+    .invoice-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 40px 60px 10px;
+      background-color: #f9f9fb;
+      border-bottom: 3px solid #d7dae0;
+    }
+    .inovice-info {
+      text-align: start;
+    }
+    .inovice-info h1 {
+      font-weight: 900;
+      font-size: 30px;
+      color: #000;
+      margin: 0;
+      margin-bottom: 8px;
+    }
+    .inovice-info h4 {
+      font-weight: 500;
+      font-size: 18px;
+      color: #5e6470;
+      margin: 0;
+      margin-bottom: 5px;
+    }
+    .inovice-info h3 {
+      font-weight: 500;
+      font-size: 20px;
+      color: #000;
+      margin: 10px 0 10px;
+    }
+    .inovice-info h5 {
+      font-weight: 500;
+      font-size: 16px;
+      color: #5e6470;
+      margin: 0;
+      margin-bottom: 5px;
+    }
+    .store-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: end;
+    }
+    .store-info figure {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 15px;
+      background-color: #d8d8d8;
+    }
+    .store-info img {
+      max-width: 100%;
+    }
+    .store-info h2 {
+      font-weight: 900;
+      font-size: 20px;
+      color: #eb0046;
+      margin: 0;
+      margin-bottom: 5px;
+    }
+    .store-info h5 {
+      font-weight: 500;
+      font-size: 16px;
+      color: #5e6470;
+      margin: 0;
+      margin-bottom: 5px;
+    }
+    .total-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: none;
+      table-layout: fixed;
+    }
+    .total-table td {
+      font-weight: 700;
+      font-size: 18px;
+      color: #000;
+      padding: 0 30px;
+      height: 45px;
+    }
+    .total-table td:last-of-type {
+      color: #5e6470;
+    }
+    .total-table .discount td {
+      color: #eb0046;
+    }
+    .total-table .total {
+      border-top: 1px solid #eeeff1;
+      background-color: #f9fafb;
+      height: 60px;
+    }
+    .total-table .total td {
+      color: #00a41e;
+      font-size: 20px;
+    }
+    .invoice-footer {
+      padding: 0 60px;
+      max-width: 100%;
+    }
+    .invoice-footer-border {
+      width: 100%;
+      padding: 20px 0;
+      border-top: 1px dashed #5e6470;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-weight: 500;
+      font-size: 16px;
+      color: #5e6470;
+    }
+    @media print {
+      tfoot {
+        display: table-footer-group;
+      }
+      .invoice-footer {
+        position: fixed;
+        bottom: 0;
+        height: 71px;
+        left: 0;
+        right: 0;
+      }
+    }
+    .page {
+      page-break-after: always;
+    }
+
+    .page-footer-space {
+      height: 71px;
+    }
+    /* Styles go here */
+
+.page-footer, .page-footer-space {
+  height: 71px;
+
+}
+
+.page {
+  page-break-after: always;
+}
+
+@page {
+  margin: 20mm
+}
+
+@media print {
+   thead {display: table-header-group;} 
+   tfoot {display: table-footer-group;}
+   
+   button {display: none;}
+   
+   body {margin: 0;}
+}
+  </style>
+
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <div class="invoice-cont">
+              <div class="invoice-header">
+                <div class="inovice-info">
+                  <h1>فاتورة</h1>
+                  <h4>رقم الفاتورة : <span>AB2324-0D</span></h4>
+                  <h4>تاريخ الاصدار : <span>12 يناير 2025</span></h4>
+                  <h4>تاريخ الاستحقاق : <span>12 يناير 2025</span></h4>
+                  <h3>مرسلة الى</h3>
+                  <h5>اسم العميل</h5>
+                  <h5>user@gmail.com</h5>
+                </div>
+                <div class="store-info">
+                  <figure><img src="" /> <span>لوجو</span></figure>
+                  <h2>اسم المتجر</h2>
+                  <h5>store@gmail.com</h5>
+                </div>
+              </div>
+              <div class="table_group">
+                <table class="table-info">
+                  <thead>
+                    <tr>
+                      <th colspan="3" class="text-start">المنتج</th>
+                      <th colspan="1">الكمية</th>
+                      <th colspan="1">السعر</th>
+                      <th colspan="1">الاجمالى</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="3" class="text-start">
+                        جلباب رجالى ماركة الدفه مقاس L
+                      </td>
+                      <td colspan="1">1</td>
+                      <td colspan="1">3.000 دك</td>
+                      <td colspan="1">3.000 دك</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="text-start">
+                        جلباب رجالى ماركة الدفه مقاس L
+                      </td>
+
+                      <td colspan="1">200</td>
+                      <td colspan="1">3.000 دك</td>
+                      <td colspan="1">3.000 دك</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="text-start">
+                        جلباب رجالى ماركة الدفه مقاس L
+                      </td>
+
+                      <td colspan="1">1</td>
+                      <td colspan="1">3.000 دك</td>
+                      <td colspan="1">3.000 دك</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="total-table">
+                  <tr>
+                    <td>اجمالى المنتجات</td>
+                    <td colspan="2">12.000 دك</td>
+                  </tr>
+                  <tr>
+                    <td>رسوم التوصيل</td>
+                    <td colspan="2">5.000 دك</td>
+                  </tr>
+                  <tr class="discount">
+                    <td>الخصم</td>
+                    <td colspan="2">4.000- دك</td>
+                  </tr>
+                  <tr class="total">
+                    <td>اجمالى المستحق</td>
+                    <td colspan="2">13.000دك</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>
+            <div class="page-footer-space"></div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="invoice-footer">
+      <div class="invoice-footer-border">
+        <span>اسم المتجر- AB2324_01</span>
+        <span>صفحه 1 من 1</span>
+      </div>
+    </div>
+  </body>
+</html>
