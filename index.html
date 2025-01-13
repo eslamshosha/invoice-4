@@ -247,149 +247,100 @@
       color: #5e6470;
     }
     @media print {
-      tfoot {
-        display: table-footer-group;
-      }
       .invoice-footer {
-        position: fixed;
+        position: absolute;
         bottom: 0;
         height: 71px;
         left: 0;
         right: 0;
       }
     }
-    .page {
-      page-break-after: always;
-    }
-
-    .page-footer-space {
-      height: 71px;
-    }
-    /* Styles go here */
-
-    .page-footer,
-    .page-footer-space {
-      height: 71px;
-    }
-
-    .page {
-      page-break-after: always;
-    }
-
-    @page {
-      margin: 20mm;
-    }
 
     @media print {
-      thead {
-        display: table-header-group;
-      }
-      tfoot {
-        display: table-footer-group;
-      }
-
-      button {
-        display: none;
-      }
-
       body {
         margin: 0;
+        padding-bottom: 71px;
       }
     }
   </style>
 
   <body>
-    <table>
-      <tbody>
-        <tr>
-          <td>
-            <div class="invoice-cont">
-              <div class="invoice-header">
-                <div class="inovice-info">
-                  <h1>فاتورة</h1>
-                  <h4>رقم الفاتورة : <span>AB2324-0D</span></h4>
-                  <h4>تاريخ الاصدار : <span>12 يناير 2025</span></h4>
-                  <h4>تاريخ الاستحقاق : <span>12 يناير 2025</span></h4>
-                  <h3>مرسلة الى</h3>
-                  <h5>اسم العميل</h5>
-                  <h5>user@gmail.com</h5>
-                </div>
-                <div class="store-info">
-                  <figure><img src="" /> <span>لوجو</span></figure>
-                  <h2>اسم المتجر</h2>
-                  <h5>store@gmail.com</h5>
-                </div>
-              </div>
-              <div class="table_group">
-                <table class="table-info">
-                  <thead>
-                    <tr>
-                      <th colspan="3" class="text-start">المنتج</th>
-                      <th colspan="1">الكمية</th>
-                      <th colspan="1">السعر</th>
-                      <th colspan="1">الاجمالى</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td colspan="3" class="text-start">
-                        جلباب رجالى ماركة الدفه مقاس L
-                      </td>
-                      <td colspan="1">1</td>
-                      <td colspan="1">3.000 دك</td>
-                      <td colspan="1">3.000 دك</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3" class="text-start">
-                        جلباب رجالى ماركة الدفه مقاس L
-                      </td>
+    <div class="invoice-cont">
+      <div class="invoice-header">
+        <div class="inovice-info">
+          <h1>فاتورة</h1>
+          <h4>رقم الفاتورة : <span>AB2324-0D</span></h4>
+          <h4>تاريخ الاصدار : <span>12 يناير 2025</span></h4>
+          <h4>تاريخ الاستحقاق : <span>12 يناير 2025</span></h4>
+          <h3>مرسلة الى</h3>
+          <h5>اسم العميل</h5>
+          <h5>user@gmail.com</h5>
+        </div>
+        <div class="store-info">
+          <figure><img src="" /> <span>لوجو</span></figure>
+          <h2>اسم المتجر</h2>
+          <h5>store@gmail.com</h5>
+        </div>
+      </div>
+      <div class="table_group">
+        <table class="table-info">
+          <thead>
+            <tr>
+              <th colspan="3" class="text-start">المنتج</th>
+              <th colspan="1">الكمية</th>
+              <th colspan="1">السعر</th>
+              <th colspan="1">الاجمالى</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="3" class="text-start">
+                جلباب رجالى ماركة الدفه مقاس L
+              </td>
+              <td colspan="1">1</td>
+              <td colspan="1">3.000 دك</td>
+              <td colspan="1">3.000 دك</td>
+            </tr>
+            <tr>
+              <td colspan="3" class="text-start">
+                جلباب رجالى ماركة الدفه مقاس L
+              </td>
 
-                      <td colspan="1">200</td>
-                      <td colspan="1">3.000 دك</td>
-                      <td colspan="1">3.000 دك</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3" class="text-start">
-                        جلباب رجالى ماركة الدفه مقاس L
-                      </td>
+              <td colspan="1">200</td>
+              <td colspan="1">3.000 دك</td>
+              <td colspan="1">3.000 دك</td>
+            </tr>
+            <tr>
+              <td colspan="3" class="text-start">
+                جلباب رجالى ماركة الدفه مقاس L
+              </td>
 
-                      <td colspan="1">1</td>
-                      <td colspan="1">3.000 دك</td>
-                      <td colspan="1">3.000 دك</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table class="total-table">
-                  <tr>
-                    <td>اجمالى المنتجات</td>
-                    <td colspan="2">12.000 دك</td>
-                  </tr>
-                  <tr>
-                    <td>رسوم التوصيل</td>
-                    <td colspan="2">5.000 دك</td>
-                  </tr>
-                  <tr class="discount">
-                    <td>الخصم</td>
-                    <td colspan="2">4.000- دك</td>
-                  </tr>
-                  <tr class="total">
-                    <td>اجمالى المستحق</td>
-                    <td colspan="2">13.000دك</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td>
-            <div class="page-footer-space"></div>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
+              <td colspan="1">1</td>
+              <td colspan="1">3.000 دك</td>
+              <td colspan="1">3.000 دك</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="total-table">
+          <tr>
+            <td>اجمالى المنتجات</td>
+            <td colspan="2">12.000 دك</td>
+          </tr>
+          <tr>
+            <td>رسوم التوصيل</td>
+            <td colspan="2">5.000 دك</td>
+          </tr>
+          <tr class="discount">
+            <td>الخصم</td>
+            <td colspan="2">4.000- دك</td>
+          </tr>
+          <tr class="total">
+            <td>اجمالى المستحق</td>
+            <td colspan="2">13.000دك</td>
+          </tr>
+        </table>
+      </div>
+    </div>
     <div class="invoice-footer">
       <div class="invoice-footer-border">
         <span>اسم المتجر- AB2324_01</span>
